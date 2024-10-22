@@ -1,0 +1,20 @@
+title: week 8 assignment sigma rule
+id: week 8 sigma rule
+status: test
+description: Detects when the installutils.exe is executed with certain parameters
+references:
+   - https://github.com/EvaStanAccount/IT4077/blob/Main/Week9/Week9.ps1
+author: Ian Listopad @ilistopad303
+date: 2024-10-21
+logsource:
+  category: process_creation
+  service: sysmon
+  product: windows
+detection:
+  selection:
+    - winlog.event_data.Image|endswith: 'InstallUtil.exe'
+  keywords:
+    - '/logfile='
+    - '/LogToConsole=false'
+    - 'C:\Users\Administrator\malicious.exe'
+  condition: selection and keywords
