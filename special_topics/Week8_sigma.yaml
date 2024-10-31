@@ -1,5 +1,4 @@
 title: week 8 assignment sigma rule
-id: week 8 sigma rule
 status: test
 description: Detects when the installutils.exe is executed with certain parameters
 references:
