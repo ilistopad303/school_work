@@ -11,7 +11,7 @@ logsource:
 detection:
     parent_process:
         winlog.event_data.ParentImage|endswith:
-            - '\powershell.exe'
+            - '\powershell.exe'test
     selection_img:
         - winlog.event_data.Image|endswith: '\bitsadmin.exe'
         - winlog.event_data.OriginalFileName: 'bitsadmin.exe'
