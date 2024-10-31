@@ -10,8 +10,7 @@ logsource:
   product: windows
 detection:
     parent_process:
-        Image|endswith: '\cmd.exe'
-        ParentImage|endswith:
+        winlog.event_data.ParentImage|endswith:
             - '\powershell.exe'
     selection_img:
         - winlog.event_data.Image|endswith: '\bitsadmin.exe'
