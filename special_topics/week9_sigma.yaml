@@ -12,7 +12,7 @@ detection:
     parent_process:
         Image|endswith: '\cmd.exe'
         ParentImage|endswith:
-            - '\java.exe'
+            - '\powershell.exe'
     selection_img:
         - winlog.event_data.Image|endswith: '\bitsadmin.exe'
         - winlog.event_data.OriginalFileName: 'bitsadmin.exe'
