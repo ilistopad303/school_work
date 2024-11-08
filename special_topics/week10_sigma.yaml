@@ -10,8 +10,8 @@ logsource:
   product: windows
 detection:
     selection_img:
-        - winlog.event_data.Image|endswith: '\MSHTA.EXE'
+        - winlog.event_data.Image|endswith: 'MSHTA.EXE'
         - winlog.event_data.OriginalFileName: 'MSHTA.EXE'
     selection_payload:
-        winlog.event_data.CommandLine|contains: ' \payload.hta '
-    condition: selection_img and selection_payload
+        winlog.event_data.CommandLine|contains: 'payload.hta'
+    condition: selection_img or selection_payload
