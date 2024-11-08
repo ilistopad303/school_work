@@ -1,0 +1,17 @@
+title: week 10 assignment sigma rule
+status: test
+description: Detects when the bitsadmin process is ran with an unusual parent
+references:
+   - https://github.com/EvaStanAccount/IT4077/blob/Main/Week10.ps1
+author: Ian Listopad @ilistopad303
+date: 2024-10-31
+logsource:
+  category: process_creation
+  product: windows
+detection:
+    selection_img:
+        - winlog.event_data.Image|endswith: '\MSHTA.EXE'
+        - winlog.event_data.OriginalFileName: 'MSHTA.EXE'
+    selection_payload:
+        winlog.event_data.CommandLine|contains: ' \payload.hta '
+    condition: selection_img and selection_payload
