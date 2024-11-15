@@ -1,0 +1,14 @@
+title: week 11 assignment sigma rule
+status: test
+description: Detection for the scheduled task creation
+references:
+   - https://github.com/EvaStanAccount/IT4077/blob/Main/Week11/Week10.ps1
+author: Ian Listopad @ilistopad303
+date: 2024-11-08
+logsource:
+  product: windows
+detection:
+    schtask_command:
+      - winlog.event_data.CommandLine|contains: 'schtasks /Create'
+      - winlog.event_data.CommandLine|contains: 'AppDataLocalTemp'
+    condition: schtask_command
