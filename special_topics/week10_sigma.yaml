@@ -1,0 +1,18 @@
+title: week 10 assignment sigma rule
+status: test
+description: Detection for the MSHTA script from the referenced repository
+references:
+   - https://github.com/EvaStanAccount/IT4077/blob/Main/Week11/Week10.ps1
+author: Ian Listopad @ilistopad303
+date: 2024-11-08
+logsource:
+  product: windows
+detection:
+    selection_img:
+        - winlog.event_data.Image|endswith: 'MSHTA.EXE'
+        - winlog.event_data.OriginalFileName: 'MSHTA.EXE'
+    selection_payload:
+        winlog.event_data.CommandLine|contains: 'payload.hta'
+    find_file_created:
+        winlog.event_data.TargetFilename|endswith: 'payload.hta'
+    condition: selection_img or selection_payload or find_file_created
