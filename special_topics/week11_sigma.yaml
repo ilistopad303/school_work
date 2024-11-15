@@ -2,7 +2,7 @@ title: week 11 assignment sigma rule
 status: test
 description: Detection for the scheduled task creation
 references:
-   - https://github.com/EvaStanAccount/IT4077/blob/Main/Week11/Week10.ps1
+   - https://www.sentinelone.com/labs/agent-tesla-old-rat-uses-new-tricks-to-stay-on-top/
 author: Ian Listopad @ilistopad303
 date: 2024-11-08
 logsource:
